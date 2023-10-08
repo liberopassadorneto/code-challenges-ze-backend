@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input Address {
+  coordinates: [Float!]!
+}
+
+type AddressModel {
+  coordinates: [Float!]!
+  type: String!
+}
+
+type CoverageAreaModel {
+  coordinates: [[[Float!]!]!]!
+  type: String!
+}
+
+input CreatePartnerInput {
+  address: Address!
+  document: String!
+  ownerName: String!
+  tradingName: String!
+}
+
+type Mutation {
+  createPartner(data: CreatePartnerInput!): PartnerModel!
+}
+
+type PartnerModel {
+  address: AddressModel!
+  coverageArea: CoverageAreaModel!
+  document: String!
+  ownerName: String!
+  tradingName: String!
+}
+
+type Query {
+  loadPartnerById(partnerId: String!): PartnerModel!
+}
